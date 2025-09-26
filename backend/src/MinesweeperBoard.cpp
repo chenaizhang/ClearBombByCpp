@@ -1,6 +1,8 @@
 #include "MinesweeperBoard.hpp"
+#include "Logger.hpp"
 
 #include <algorithm>
+#include <chrono>
 #include <numeric>
 #include <stdexcept>
 
@@ -22,25 +24,52 @@ MinesweeperBoard::MinesweeperBoard(std::size_t rows, std::size_t columns, std::s
     , rng_(std::random_device{}())
 {
     if (rows == 0 || columns == 0) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Board creation failed - non-positive dimensions " << rows << 'x' << columns
+        );
         throw std::invalid_argument("Board dimensions must be positive.");
     }
     if (mine_count == 0 || mine_count >= rows * columns) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Board creation failed - invalid mine count " << mine_count << " for " << rows * columns
+        );
         throw std::invalid_argument("Mine count must be between 1 and total cell count - 1.");
     }
 
+    const auto start = std::chrono::steady_clock::now();
     populate_board();
+    const auto end = std::chrono::steady_clock::now();
+    const auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    LOG_INFO(
+        "MinesweeperBoard",
+        "Board populated " << rows_ << 'x' << columns_ << " with " << mine_count_ << " mines in "
+                            << duration_ms << " ms"
+    );
 }
 
 RevealOutcome MinesweeperBoard::reveal(Position position)
 {
     if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Reveal request out of bounds at (" << position.row << ',' << position.column << ")"
+        );
         throw std::out_of_range("Reveal position outside of board bounds.");
     }
+
+    LOG_DEBUG("MinesweeperBoard", "Reveal processing at (" << position.row << ',' << position.column << ")");
 
     RevealOutcome outcome{};
     Cell& cell = cells_.at(index(position));
 
     if (cell.state == CellState::Flagged || cell.state == CellState::Revealed) {
+        LOG_DEBUG(
+            "MinesweeperBoard",
+            "Reveal ignored due to cell already in state "
+                << (cell.state == CellState::Flagged ? "Flagged" : "Revealed")
+        );
         return outcome;
     }
 
@@ -49,6 +78,10 @@ RevealOutcome MinesweeperBoard::reveal(Position position)
         cell.exploded = true;
         outcome.hit_mine = true;
         outcome.revealed_cells.push_back(cell);
+        LOG_WARNING(
+            "MinesweeperBoard",
+            "Mine revealed at (" << position.row << ',' << position.column << ")"
+        );
         return outcome;
     }
 
@@ -63,6 +96,10 @@ RevealOutcome MinesweeperBoard::reveal(Position position)
 
         Cell& current_cell = cells_.at(index(current));
         if (current_cell.state == CellState::Flagged) {
+            LOG_DEBUG(
+                "MinesweeperBoard",
+                "Skipping expansion from flagged cell at (" << current.row << ',' << current.column << ")"
+            );
             continue;
         }
         if (current_cell.state != CellState::Revealed) {
@@ -92,34 +129,59 @@ RevealOutcome MinesweeperBoard::reveal(Position position)
         }
     }
 
+    LOG_DEBUG(
+        "MinesweeperBoard",
+        "Reveal finished at (" << position.row << ',' << position.column << ") exposing "
+                               << outcome.revealed_cells.size() << " cells"
+    );
     return outcome;
 }
 
 ToggleOutcome MinesweeperBoard::toggle_flag(Position position)
 {
     if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Flag toggle out of bounds at (" << position.row << ',' << position.column << ")"
+        );
         throw std::out_of_range("Toggle position outside of board bounds.");
     }
 
     Cell& cell = cells_.at(index(position));
     if (cell.state == CellState::Revealed) {
+        LOG_DEBUG(
+            "MinesweeperBoard",
+            "Flag toggle ignored - cell already revealed at (" << position.row << ',' << position.column << ")"
+        );
         return ToggleOutcome{cell, false};
     }
 
     if (cell.state == CellState::Hidden) {
         cell.state = CellState::Flagged;
         cell.exploded = false;
+        LOG_DEBUG(
+            "MinesweeperBoard",
+            "Flag placed at (" << position.row << ',' << position.column << ")"
+        );
         return ToggleOutcome{cell, true};
     }
 
     cell.state = CellState::Hidden;
     cell.exploded = false;
+    LOG_DEBUG(
+        "MinesweeperBoard",
+        "Flag removed at (" << position.row << ',' << position.column << ")"
+    );
     return ToggleOutcome{cell, false};
 }
 
 const Cell& MinesweeperBoard::cell_at(Position position) const
 {
     if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Cell access out of bounds at (" << position.row << ',' << position.column << ")"
+        );
         throw std::out_of_range("Cell request outside of board bounds.");
     }
     return cells_.at(index(position));
@@ -128,6 +190,10 @@ const Cell& MinesweeperBoard::cell_at(Position position) const
 Cell& MinesweeperBoard::mutable_cell(Position position)
 {
     if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Mutable cell access out of bounds at (" << position.row << ',' << position.column << ")"
+        );
         throw std::out_of_range("Cell request outside of board bounds.");
     }
     return cells_.at(index(position));
@@ -166,9 +232,17 @@ std::vector<Cell> MinesweeperBoard::neighbors(Position position) const
 void MinesweeperBoard::resize(std::size_t rows, std::size_t columns, std::size_t mine_count)
 {
     if (rows == 0 || columns == 0) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Resize rejected - non-positive dimensions " << rows << 'x' << columns
+        );
         throw std::invalid_argument("Board dimensions must be positive.");
     }
     if (mine_count == 0 || mine_count >= rows * columns) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Resize rejected - invalid mine count " << mine_count << " for " << rows * columns
+        );
         throw std::invalid_argument("Mine count must be between 1 and total cell count - 1.");
     }
 
@@ -177,12 +251,20 @@ void MinesweeperBoard::resize(std::size_t rows, std::size_t columns, std::size_t
     mine_count_ = mine_count;
     cells_.assign(rows * columns, Cell{});
     regenerate();
+    LOG_INFO(
+        "MinesweeperBoard",
+        "Board resized to " << rows_ << 'x' << columns_ << " with " << mine_count_ << " mines"
+    );
 }
 
 void MinesweeperBoard::regenerate()
 {
     rng_.seed(std::random_device{}());
     populate_board();
+    LOG_DEBUG(
+        "MinesweeperBoard",
+        "Board regenerated with layout shuffle - mine count " << mine_count_
+    );
 }
 
 std::size_t MinesweeperBoard::rows() const noexcept { return rows_; }
@@ -199,6 +281,7 @@ bool MinesweeperBoard::all_safe_cells_revealed() const noexcept
 void MinesweeperBoard::populate_board()
 {
     if (rows_ == 0 || columns_ == 0) {
+        LOG_CRITICAL("MinesweeperBoard", "Populate called without valid dimensions");
         throw std::logic_error("Board dimensions must be set before population.");
     }
 
@@ -250,11 +333,19 @@ void MinesweeperBoard::populate_board()
     }
 
     revealed_safe_cells_ = 0;
+    LOG_DEBUG(
+        "MinesweeperBoard",
+        "Board population complete - " << mine_count_ << " mines distributed"
+    );
 }
 
 std::size_t MinesweeperBoard::index(Position position) const
 {
     if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Index request out of bounds at (" << position.row << ',' << position.column << ")"
+        );
         throw std::out_of_range("Index calculation outside of board bounds.");
     }
     return position.row * columns_ + position.column;

@@ -12,6 +12,7 @@ add_library(clear_bomb_core
     src/GameEngine.cpp
     src/MinesweeperBoard.cpp
     src/AutoMarker.cpp
+    src/Logger.cpp
 )
 
 target_include_directories(clear_bomb_core

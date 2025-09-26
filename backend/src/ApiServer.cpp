@@ -1,4 +1,5 @@
 #include "ApiServer.hpp"
+#include "Logger.hpp"
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -71,6 +72,7 @@ ApiServer::ApiServer(std::shared_ptr<GameEngine> engine, unsigned short port)
     if (!engine_) {
         throw std::invalid_argument("ApiServer requires a valid GameEngine instance.");
     }
+    LOG_INFO("ApiServer", "Configured HTTP server on port " << port_);
 }
 
 ApiServer::~ApiServer()
@@ -82,9 +84,11 @@ void ApiServer::start()
 {
     bool expected = false;
     if (!running_.compare_exchange_strong(expected, true)) {
+        LOG_DEBUG("ApiServer", "Start requested but server already running");
         return;
     }
 
+    LOG_INFO("ApiServer", "Starting server thread");
     server_thread_ = std::thread(&ApiServer::run_event_loop, this);
 }
 
@@ -94,6 +98,7 @@ void ApiServer::stop()
         return;
     }
 
+    LOG_INFO("ApiServer", "Stopping server");
     if (server_fd_ >= 0) {
         ::shutdown(server_fd_, SHUT_RDWR);
         ::close(server_fd_);
@@ -109,14 +114,14 @@ void ApiServer::run_event_loop()
 {
     server_fd_ = ::socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd_ < 0) {
-        std::perror("socket");
+        LOG_CRITICAL("ApiServer", "Failed to create socket: errno=" << errno);
         running_ = false;
         return;
     }
 
     int enable = 1;
     if (setsockopt(server_fd_, SOL_SOCKET, SO_REUSEADDR, &enable, sizeof(enable)) < 0) {
-        std::perror("setsockopt");
+        LOG_WARNING("ApiServer", "setsockopt(SO_REUSEADDR) failed: errno=" << errno);
     }
 
     sockaddr_in address {};
@@ -125,7 +130,7 @@ void ApiServer::run_event_loop()
     address.sin_port = htons(port_);
 
     if (bind(server_fd_, reinterpret_cast<sockaddr*>(&address), sizeof(address)) < 0) {
-        std::perror("bind");
+        LOG_CRITICAL("ApiServer", "bind failed on port " << port_ << " errno=" << errno);
         ::close(server_fd_);
         server_fd_ = -1;
         running_ = false;
@@ -133,12 +138,14 @@ void ApiServer::run_event_loop()
     }
 
     if (listen(server_fd_, 16) < 0) {
-        std::perror("listen");
+        LOG_CRITICAL("ApiServer", "listen failed on port " << port_ << " errno=" << errno);
         ::close(server_fd_);
         server_fd_ = -1;
         running_ = false;
         return;
     }
+
+    LOG_INFO("ApiServer", "Server listening on port " << port_);
 
     while (running_) {
         fd_set read_fds;
@@ -151,7 +158,7 @@ void ApiServer::run_event_loop()
             if (errno == EINTR) {
                 continue;
             }
-            std::perror("select");
+            LOG_ERROR("ApiServer", "select failed: errno=" << errno);
             break;
         }
 
@@ -164,8 +171,15 @@ void ApiServer::run_event_loop()
             socklen_t client_len = sizeof(client_addr);
             int client_fd = accept(server_fd_, reinterpret_cast<sockaddr*>(&client_addr), &client_len);
             if (client_fd < 0) {
-                std::perror("accept");
+                LOG_WARNING("ApiServer", "accept failed: errno=" << errno);
                 continue;
+            }
+
+            char client_ip[INET_ADDRSTRLEN] = {0};
+            if (inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, sizeof(client_ip))) {
+                LOG_DEBUG("ApiServer", "Accepted connection from " << client_ip << ':' << ntohs(client_addr.sin_port));
+            } else {
+                LOG_DEBUG("ApiServer", "Accepted connection - unable to resolve client address");
             }
 
             std::thread(&ApiServer::handle_client, this, client_fd).detach();
@@ -176,6 +190,8 @@ void ApiServer::run_event_loop()
         ::close(server_fd_);
         server_fd_ = -1;
     }
+
+    LOG_INFO("ApiServer", "Event loop terminated");
 }
 
 void ApiServer::handle_client(int client_fd)
@@ -192,7 +208,7 @@ void ApiServer::handle_client(int client_fd)
     }
 
     if (bytes_read < 0) {
-        std::perror("recv");
+        LOG_WARNING("ApiServer", "recv failed for client_fd=" << client_fd << " errno=" << errno);
         ::close(client_fd);
         return;
     }
@@ -202,6 +218,7 @@ void ApiServer::handle_client(int client_fd)
         const auto response = build_error_response(400, "Invalid HTTP request");
         ::send(client_fd, response.c_str(), response.size(), 0);
         ::close(client_fd);
+        LOG_WARNING("ApiServer", "Rejected malformed request");
         return;
     }
 
@@ -245,22 +262,34 @@ void ApiServer::handle_client(int client_fd)
 
     if (method == "OPTIONS") {
         response = build_http_response(204, "");
+        LOG_DEBUG("ApiServer", "Handled OPTIONS request");
     } else if (method == "GET" && path == "/api/board") {
         response = handle_get_board();
+        LOG_DEBUG("ApiServer", "Handled GET /api/board");
     } else if (method == "POST" && path == "/api/reveal") {
         response = handle_post_reveal(body);
+        LOG_INFO("ApiServer", "Handled POST /api/reveal payload_size=" << body.size());
     } else if (method == "POST" && path == "/api/flag") {
         response = handle_post_flag(body);
+        LOG_INFO("ApiServer", "Handled POST /api/flag payload_size=" << body.size());
     } else if (method == "POST" && path == "/api/auto-mark") {
         response = handle_post_auto_mark(body);
+        LOG_INFO("ApiServer", "Handled POST /api/auto-mark payload_size=" << body.size());
     } else if (method == "POST" && path == "/api/reset") {
         response = handle_post_reset(body);
+        LOG_INFO("ApiServer", "Handled POST /api/reset payload_size=" << body.size());
     } else {
         response = build_error_response(404, "Endpoint not found");
+        LOG_WARNING(
+            "ApiServer",
+            "Unhandled route " << method << ' ' << path << " - returning 404"
+        );
     }
 
     ::send(client_fd, response.c_str(), response.size(), 0);
     ::close(client_fd);
+
+    LOG_DEBUG("ApiServer", "Response sent and connection closed");
 }
 
 std::string ApiServer::build_http_response(int status_code, const std::string& body)
@@ -301,6 +330,11 @@ std::string ApiServer::handle_get_board() const
 {
     std::lock_guard<std::mutex> guard(engine_mutex_);
     const auto snapshot = engine_->snapshot();
+    LOG_DEBUG(
+        "ApiServer",
+        "Snapshot requested - status=" << status_to_string(snapshot.status)
+            << ", flags_remaining=" << snapshot.flags_remaining
+    );
     return build_http_response(200, serialize_board_snapshot(snapshot));
 }
 
@@ -308,12 +342,19 @@ std::string ApiServer::handle_post_reveal(const std::string& body)
 {
     const auto position = parse_position(body);
     if (!position) {
+        LOG_WARNING("ApiServer", "Rejecting reveal - invalid payload: " << body);
         return build_error_response(400, "Invalid reveal payload");
     }
 
     std::lock_guard<std::mutex> guard(engine_mutex_);
     const auto result = engine_->reveal_cell(*position);
     const auto snapshot = engine_->snapshot();
+
+    LOG_INFO(
+        "ApiServer",
+        "Reveal at (" << position->row << ',' << position->column << ") -> hitMine="
+                       << format_bool(result.hit_mine) << ", victory=" << format_bool(result.victory)
+    );
 
     std::ostringstream payload;
     payload << "{\"updatedCells\":" << serialize_cells(result.updated_cells)
@@ -329,12 +370,19 @@ std::string ApiServer::handle_post_flag(const std::string& body)
 {
     const auto position = parse_position(body);
     if (!position) {
+        LOG_WARNING("ApiServer", "Rejecting flag - invalid payload: " << body);
         return build_error_response(400, "Invalid flag payload");
     }
 
     std::lock_guard<std::mutex> guard(engine_mutex_);
     const auto result = engine_->toggle_flag(*position);
     const auto snapshot = engine_->snapshot();
+
+    LOG_INFO(
+        "ApiServer",
+        "Flag toggled at (" << position->row << ',' << position->column << ") -> flags_remaining="
+                            << result.flags_remaining
+    );
 
     std::ostringstream payload;
     payload << "{\"updatedCell\":" << serialize_cell(result.updated_cell)
@@ -349,12 +397,23 @@ std::string ApiServer::handle_post_auto_mark(const std::string& body)
 {
     const auto selection = parse_selection(body);
     if (!selection) {
+        LOG_WARNING("ApiServer", "Rejecting auto-mark - invalid payload: " << body);
         return build_error_response(400, "Invalid selection payload");
     }
 
     std::lock_guard<std::mutex> guard(engine_mutex_);
     const auto auto_result = engine_->auto_mark(*selection);
     const auto snapshot = engine_->snapshot();
+
+    if (auto_result) {
+        LOG_INFO(
+            "ApiServer",
+            "Auto-mark flagged " << auto_result->flagged_cells.size() << " cell(s) - flags remaining: "
+                                 << auto_result->flags_remaining
+        );
+    } else {
+        LOG_DEBUG("ApiServer", "Auto-mark produced no new flags");
+    }
 
     std::ostringstream payload;
     if (auto_result) {
@@ -379,6 +438,7 @@ std::string ApiServer::handle_post_reset(const std::string& body)
     if (!body.empty() && !is_whitespace_only(body)) {
         config = parse_board_config(body);
         if (!config) {
+            LOG_WARNING("ApiServer", "Rejecting reset - invalid configuration payload: " << body);
             return build_error_response(400, "Invalid board configuration");
         }
     }
@@ -387,11 +447,21 @@ std::string ApiServer::handle_post_reset(const std::string& body)
     try {
         engine_->reset(config);
     } catch (const std::invalid_argument& error) {
+        LOG_WARNING("ApiServer", "Reset rejected: " << error.what());
         return build_error_response(400, error.what());
     } catch (const std::exception&) {
+        LOG_ERROR("ApiServer", "Reset failed due to unexpected error");
         return build_error_response(500, "Unable to reset board");
     }
     const auto snapshot = engine_->snapshot();
+    if (config) {
+        LOG_INFO(
+            "ApiServer",
+            "Board reset via API to " << config->rows << 'x' << config->columns << " with " << config->mines
+        );
+    } else {
+        LOG_INFO("ApiServer", "Board reset via API using existing configuration");
+    }
     return build_http_response(200, serialize_board_snapshot(snapshot));
 }
 
