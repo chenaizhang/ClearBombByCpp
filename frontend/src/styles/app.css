@@ -1,0 +1,39 @@
+:root {
+  --board-bg: #f2f2f2;
+  --board-border: #b0b0b0;
+  --cell-size: 32px;
+  --selection-color: rgba(0, 136, 255, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.game-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+}
+
+/* TODO: Refine global styles once UI mockups are available (dark/light modes, typography). */

@@ -1,0 +1,33 @@
+.board-wrapper {
+  position: relative;
+  padding: 16px;
+  background-color: var(--board-bg);
+  border: 2px solid var(--board-border);
+  border-radius: 4px;
+}
+
+.board {
+  display: grid;
+  gap: 2px;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2f2f2f;
+  border: 1px solid #101010;
+  color: #fdfdfd;
+  font-weight: bold;
+}
+
+.selection-overlay {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid rgba(0, 136, 255, 0.7);
+  background-color: var(--selection-color);
+}
+
+/* TODO: Differentiate cell states (revealed, flagged, wrong-flag) visually. */
