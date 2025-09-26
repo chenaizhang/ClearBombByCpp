@@ -1,14 +1,17 @@
 .board-wrapper {
   position: relative;
   padding: 16px;
-  background-color: var(--board-bg);
-  border: 2px solid var(--board-border);
-  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.35));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
 }
 
 .board {
   display: grid;
-  gap: 2px;
+  gap: 1px;
+  background-color: #1a1a1f;
+  border: 2px solid var(--board-border);
+  border-radius: 8px;
 }
 
 .cell {
@@ -17,10 +20,47 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2f2f2f;
-  border: 1px solid #101010;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #2f2f3a;
   color: #fdfdfd;
-  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.08s ease, background-color 0.1s ease;
+  user-select: none;
+}
+
+.cell:focus-visible {
+  outline: 2px solid rgba(0, 136, 255, 0.8);
+  outline-offset: 1px;
+}
+
+.cell:hover {
+  transform: translateY(-1px);
+}
+
+.cell--hidden {
+  background: linear-gradient(145deg, #373747, #2a2a34);
+}
+
+.cell--revealed {
+  background-color: #1f1f29;
+  cursor: default;
+}
+
+.cell--flagged {
+  background-color: #383040;
+  color: #ff6b6b;
+}
+
+.cell--exploded {
+  background-color: #ff3535;
+  color: #1a1a1f;
+}
+
+.cell--disabled {
+  cursor: default;
+  opacity: 0.65;
 }
 
 .selection-overlay {
@@ -28,6 +68,76 @@
   pointer-events: none;
   border: 2px solid rgba(0, 136, 255, 0.7);
   background-color: var(--selection-color);
+  border-radius: 6px;
 }
 
-/* TODO: Differentiate cell states (revealed, flagged, wrong-flag) visually. */
+.info-banner {
+  display: inline-flex;
+  gap: 24px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.info-banner strong {
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.toolbar button,
+.toolbar select {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+}
+
+.toolbar button {
+  background: linear-gradient(135deg, #4b5cff, #6b7bff);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.toolbar button:hover {
+  transform: translateY(-1px);
+}
+
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolbar input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+}
+
+.status-message {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.status-message--victory {
+  color: #7cf27d;
+}
+
+.status-message--defeat {
+  color: #ff8080;
+}

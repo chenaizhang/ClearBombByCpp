@@ -1,28 +1,34 @@
 import React, { useContext } from 'react';
 import { GameContext } from '../context/GameContext.jsx';
 
-// TODO: Flesh out controls for difficulty, timer, mines remaining, and auto-flag toggle.
 const Toolbar = () => {
   const { state, actions } = useContext(GameContext);
 
+  const handleDifficultyChange = (event) => {
+    actions.changeDifficulty(event.target.value);
+  };
+
   return (
     <div className="toolbar">
-      <button type="button" onClick={actions.resetGame}>
-        New Game
-      </button>
-      <div className="stats">
-        <span>Flags: {state.flagsPlaced}</span>
-        <span>Timer: {state.elapsedSeconds}s</span>
+      <div className="toolbar-group">
+        <select value={state.difficulty} onChange={handleDifficultyChange} aria-label="Difficulty selection">
+          {state.difficultyPresets.map((preset) => (
+            <option value={preset.id} key={preset.id}>
+              {preset.label}
+            </option>
+          ))}
+        </select>
+        <button type="button" onClick={() => actions.resetGame()}>
+          New Game
+        </button>
       </div>
-      <label>
-        <input
-          type="checkbox"
-          checked={state.autoMarkEnabled}
-          onChange={actions.toggleAutoMark}
-        />
-        Auto Mark Selection
-      </label>
-      {/* TODO: Implement difficulty selector, scoreboard, and custom grid sizing. */}
+      <div className="toolbar-group">
+        <label>
+          <input type="checkbox" checked={state.autoMarkEnabled} onChange={actions.toggleAutoMark} />
+          Auto Mark Selection
+        </label>
+      </div>
+      {state.error && <span className="status-message status-message--defeat">{state.error}</span>}
     </div>
   );
 };

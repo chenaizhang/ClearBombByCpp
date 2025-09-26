@@ -1,39 +1,61 @@
 :root {
-  --board-bg: #f2f2f2;
-  --board-border: #b0b0b0;
+  --board-bg: #2b2b2b;
+  --board-border: #454545;
   --cell-size: 32px;
   --selection-color: rgba(0, 136, 255, 0.25);
+  color-scheme: dark light;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #1e1e1e;
+  background: radial-gradient(circle at top, #2f2f4d, #12121a 55%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #f5f5f5;
 }
 
 #root {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+}
+
+.app-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: min(90vw, 960px);
+  padding: 24px;
+  background-color: rgba(14, 14, 22, 0.85);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-size: 2.25rem;
+}
+
+.app-header p {
+  margin: 0;
+  color: #c7c7d8;
 }
 
 .game-shell {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.toolbar {
-  display: flex;
-  gap: 12px;
+  gap: 18px;
   align-items: center;
 }
-
-.stats {
-  display: flex;
-  gap: 8px;
-}
-
-/* TODO: Refine global styles once UI mockups are available (dark/light modes, typography). */

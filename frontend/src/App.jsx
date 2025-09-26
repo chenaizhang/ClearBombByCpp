@@ -2,11 +2,16 @@ import React from 'react';
 import { GameProvider } from './context/GameContext.jsx';
 import GameShell from './components/GameShell.jsx';
 
-// TODO: Expand layout with header/footer and responsive design tweaks.
 const App = () => {
   return (
     <GameProvider>
-      <GameShell />
+      <div className="app-frame">
+        <header className="app-header">
+          <h1>Clear Bomb</h1>
+          <p>Selection-aware Minesweeper powered by a C++ backend.</p>
+        </header>
+        <GameShell />
+      </div>
     </GameProvider>
   );
 };

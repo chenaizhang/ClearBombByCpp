@@ -1,9 +1,9 @@
 import React, { createContext, useMemo } from 'react';
 import { useMinesweeper } from '../hooks/useMinesweeper.js';
 
-export const GameContext = createContext();
+export const GameContext = createContext({ state: null, actions: null });
+GameContext.displayName = 'GameContext';
 
-// TODO: Provide typed context definition if TypeScript or PropTypes are introduced.
 export const GameProvider = ({ children }) => {
   const { state, actions } = useMinesweeper();
   const value = useMemo(() => ({ state, actions }), [state, actions]);

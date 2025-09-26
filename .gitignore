@@ -1,9 +1,8 @@
-# TODO: Review ignore rules once tooling decisions finalized.
-/node_modules/
-/dist/
-/build/
-/.vite/
-/.idea/
-/.vscode/
+node_modules/
+dist/
+build/
+.vite/
+.idea/
+.vscode/
 cmake-build-*/
 .DS_Store

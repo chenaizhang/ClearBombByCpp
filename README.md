@@ -1,65 +1,85 @@
 # ClearBombByCpp
 
-前端採用 React + Vite，後端使用 C++ 以模擬掃雷核心邏輯，並在原生玩法上加上「框選後自動標記確定地雷」的進階功能。以下為目前的檔案骨架與後續待辦。
+Clear Bomb delivers a browser-based Minesweeper that couples a modern React interface with a handcrafted C++ game engine. Beyond faithfully recreating the original ruleset, it introduces a smart selection workflow: drag across the grid to highlight a region and the backend will flag any mines that are logically certain.
 
-## 檔案結構
+## Architecture Overview
+
+- **Frontend (`frontend/`)** – React (Vite) application rendering the board, tracking UI state, and orchestrating API calls.
+- **Backend (`backend/`)** – CMake-driven C++ service exposing a minimal REST interface, generating boards, resolving reveals and flags, and running the certainty-based auto marker.
+- **Shared contract** – JSON payloads exchanged over `/api` endpoints. The frontend normalises server responses so UI state remains a flat collection of cells keyed by row/column.
+
+## Project Layout
 
 ```
 .
-├── frontend/                  # React 前端專案
-│   ├── package.json           # TODO: 補齊專案描述與 lint 指令
-│   ├── vite.config.js         # TODO: 調整 dev server proxy 與組建設定
-│   ├── public/
-│   │   └── index.html         # TODO: 更新 favicon 與 SEO metadata
-│   └── src/
-│       ├── App.jsx            # TODO: 擴充全域版面與額外 provider
-│       ├── main.jsx           # TODO: 依需求掛載 router / i18n 等 provider
-│       ├── styles/
-│       │   ├── app.css        # TODO: 依設計稿美化整體樣式
-│       │   └── board.css      # TODO: 完善各種格子狀態樣式
-│       ├── components/
-│       │   ├── Board.jsx      # TODO: 真正渲染棋盤並串接事件
-│       │   ├── Cell.jsx       # TODO: 彈出動畫、右鍵旗標等互動細節
-│       │   ├── GameShell.jsx  # TODO: 完成整體版面排版
-│       │   ├── SelectionOverlay.jsx # TODO: 精準對齊格子並支援多種操作裝置
-│       │   └── Toolbar.jsx    # TODO: 難度選單、計時器、分數紀錄等
-│       ├── context/
-│       │   └── GameContext.jsx # TODO: 若導入 TS/PropTypes 補型別驗證
-│       ├── hooks/
-│       │   └── useMinesweeper.js # TODO: 串接後端 API 與完整 reducer 邏輯
-│       └── services/
-│           └── apiClient.js   # TODO: 補完錯誤處理、權限、重試策略
 ├── backend/
-│   ├── CMakeLists.txt         # TODO: 加入 HTTP 函式庫與測試設定
-│   ├── include/
-│   │   ├── ApiServer.hpp      # TODO: 具體化路由與事件回圈
-│   │   ├── AutoMarker.hpp     # TODO: 注入演算法參數與策略
-│   │   ├── GameEngine.hpp     # TODO: 管理遊戲狀態與統計資訊
-│   │   └── MinesweeperBoard.hpp # TODO: 實作鄰居判定與格子資料
-│   ├── src/
-│   │   ├── ApiServer.cpp      # TODO: 整合網路框架並處理請求
-│   │   ├── AutoMarker.cpp     # TODO: 實作框選後的確定地雷推理
-│   │   ├── GameEngine.cpp     # TODO: 組合核心互動與游戲流程
-│   │   ├── MinesweeperBoard.cpp # TODO: 生成棋盤、計算鄰近地雷、翻格邏輯
-│   │   └── main.cpp           # TODO: 解析參數、啟動服務、錯誤處理
-│   ├── scripts/
-│   │   └── run_dev_server.sh  # TODO: 補齊 build + run 流程
-│   └── tests/
-│       └── GameEngineTests.cpp # TODO: 選定測試框架並填入測試案例
-└── README.md                  # TODO: 隨開發進度更新使用說明與建置流程
+│   ├── CMakeLists.txt          # Build definitions for the core library, server binary, and smoke tests
+│   ├── include/                # Public headers for the board, engine, auto marker, and server
+│   ├── scripts/run_dev_server.sh # Convenience wrapper for configuring, building, and launching the server
+│   ├── src/                    # Engine, board, auto-marker, and HTTP server implementations
+│   └── tests/GameEngineTests.cpp # Lightweight assertions exercising reset and flag workflows
+├── frontend/
+│   ├── package.json            # Vite, React, ESLint configuration & scripts
+│   ├── src/                    # React components, hooks, context, styling, and API client
+│   ├── index.html             # Vite entry point mounting the React bundle
+│   └── public/                # Static assets copied as-is to the dev server
+└── README.md                   # Project overview, setup, and documentation
 ```
 
-## 待辦摘要
+## Backend Endpoints
 
-- **前端資料流**：`useMinesweeper.js` 仍待接上後端 API、完成 reducer case 與時間計算。
-- **框選自動標記**：前端 `SelectionOverlay.jsx` 需將框選座標以棋盤格位址傳給後端；後端 `AutoMarker` 需實作確定地雷推理並回傳旗標更新。
-- **網路層**：`ApiServer` 目前僅為 stub，需選定 C++ Web framework（Drogon、Crow、Restinio 等）並實作 `/api/board`、`/api/reveal`、`/api/flag`、`/api/auto-mark` 等路由。
-- **建置流程**：`backend/CMakeLists.txt` 尚未串接 HTTP 函式庫與測試；前端 `package.json` 也待補 lint/testing script。
-- **文件化**：完成後需在 README 加上建置步驟、開發者指南、API 約定與前端開發流程。
+| Method | Path          | Description                                |
+| ------ | ------------- | ------------------------------------------ |
+| GET    | `/api/board`  | Fetch the current board snapshot           |
+| POST   | `/api/reset`  | Rebuild the board (optional size payload)  |
+| POST   | `/api/reveal` | Reveal a cell and resolve cascades         |
+| POST   | `/api/flag`   | Toggle a flag on a cell                    |
+| POST   | `/api/auto-mark` | Flag certain mines inside a selection |
 
-## 下一步建議
+All POST payloads accept/return JSON. Cells are described by `row`, `column`, `state`, `adjacentMines`, `isMine` (revealed only), and `exploded` flags, letting the UI update a targeted subset without reloading the entire grid.
 
-1. 決定後端 HTTP/WS 框架與資料交換格式，填寫 `ApiServer` 與 `apiClient` 邏輯。
-2. 釐清 Minesweeper 遊戲流程（翻格、展開、勝敗判定）並完成 `MinesweeperBoard` 與 `GameEngine` 實作。
-3. 在前端完成棋盤資料結構與 reducer，實作框選、計時器與旗標邏輯後串接自動標記。
-4. 建立測試環境（例如 GTest + Vite 測試）確保核心演算法與前端互動正確。
+## Running the Backend
+
+```bash
+cd backend
+./scripts/run_dev_server.sh            # Builds and runs on port 8080 by default
+./scripts/run_dev_server.sh 9090       # Pass a custom port if desired
+```
+
+Smoke tests build automatically when `BUILD_TESTS=ON` (default). Run them with CTest or execute the `clear_bomb_tests` binary directly from the build directory.
+
+## Running the Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev                           # Launches Vite dev server on port 5173
+npm run lint                          # ESLint over the React source tree
+```
+
+During development, Vite proxies API calls to `http://localhost:8080`. Adjust `frontend/vite.config.js` if you run the backend on another port or host.
+
+## One-Command Development Run
+
+```bash
+./run_dev.sh
+```
+
+- Starts the C++ backend (default port 8080) and the Vite frontend (default port 5173).
+- Pass custom ports with `./run_dev.sh <backend-port> <frontend-port>`.
+- Press `Ctrl+C` to stop; the script cleans up both processes before exiting.
+- Ensure Node.js, npm, CMake, and a C++20 toolchain are installed locally.
+
+## Gameplay Enhancements
+
+1. **Difficulty presets** – Beginner, Intermediate, and Expert presets map to classic Minesweeper sizes, and you can introduce new presets via `DIFFICULTY_PRESETS` in `useMinesweeper.js`.
+2. **Selection auto marker** – Drag with the primary mouse button (or touch) to highlight a rectangle. Upon release, the backend evaluates revealed neighbours and flags cells that are conclusively mines.
+3. **Timer & statistics** – The toolbar surfaces elapsed time, remaining flags, and the current game state (in progress, victory, defeat).
+
+## Development Notes
+
+- The auto-marker currently implements deterministic deductions (neighbour counts that fully match hidden cells). It is structured to accept richer heuristics later.
+- HTTP parsing is intentionally lightweight to keep dependencies minimal. If you plan to expose the service publicly, consider swapping in a hardened networking stack.
+- The frontend keeps cell state normalised to avoid nested data structures—updating multiple cells relies on mapping API payloads back into a single array keyed by `row-column` identifiers.
+
+Happy sweeping!
