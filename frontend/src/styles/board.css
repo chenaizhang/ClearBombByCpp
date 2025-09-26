@@ -129,6 +129,81 @@
   height: 16px;
 }
 
+.custom-config {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(34, 34, 46, 0.75);
+  border: 1px solid rgba(108, 122, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.custom-config label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #d3d3f5;
+}
+
+.custom-config input[type='number'] {
+  width: 80px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(17, 17, 26, 0.9);
+  color: #f5f5f5;
+  font-size: 0.95rem;
+}
+
+.custom-config input[type='number']:focus {
+  outline: none;
+  border-color: rgba(123, 143, 255, 0.9);
+  box-shadow: 0 0 0 2px rgba(123, 143, 255, 0.35);
+}
+
+.custom-config button {
+  align-self: center;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #63d3ff, #587eff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.custom-config button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(99, 211, 255, 0.3);
+}
+
+.custom-config__hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #9da8ff;
+}
+
+@media (max-width: 640px) {
+  .custom-config {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .custom-config label,
+  .custom-config button {
+    width: 100%;
+  }
+
+  .custom-config input[type='number'] {
+    width: 100%;
+  }
+}
+
 .status-message {
   font-weight: 600;
   letter-spacing: 0.02em;

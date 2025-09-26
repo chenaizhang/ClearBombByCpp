@@ -6,6 +6,9 @@
 namespace clearbomb {
 
 namespace {
+constexpr std::size_t kMinDimension = 2;
+constexpr std::size_t kMaxDimension = 50;
+
 BoardConfig make_config_from_board(const MinesweeperBoard& board)
 {
     return BoardConfig{board.rows(), board.columns(), board.mine_count()};
@@ -15,6 +18,37 @@ std::vector<Cell> copy_cells(const std::vector<Cell>& cells)
 {
     return cells;
 }
+
+std::size_t max_allowed_mines(std::size_t rows, std::size_t columns)
+{
+    if (rows < kMinDimension || rows > kMaxDimension || columns < kMinDimension || columns > kMaxDimension) {
+        return 0;
+    }
+
+    const std::size_t total_cells = rows * columns;
+    if (total_cells < 3) {
+        return 0;
+    }
+
+    return total_cells - 2;
+}
+
+void validate_config(const BoardConfig& config)
+{
+    if (config.rows < kMinDimension || config.rows > kMaxDimension ||
+        config.columns < kMinDimension || config.columns > kMaxDimension) {
+        throw std::invalid_argument("Board dimensions must be between 2 and 50.");
+    }
+
+    if (config.mines == 0) {
+        throw std::invalid_argument("Mine count must be at least 1.");
+    }
+
+    const std::size_t max_mines = max_allowed_mines(config.rows, config.columns);
+    if (max_mines == 0 || config.mines > max_mines) {
+        throw std::invalid_argument("Mine count must be at most rows * columns - 2.");
+    }
+}
 }
 
 GameEngine::GameEngine()
@@ -22,6 +56,7 @@ GameEngine::GameEngine()
     , current_config_(make_config_from_board(*board_))
     , flags_remaining_(board_->mine_count())
 {
+    validate_config(current_config_);
 }
 
 GameEngine::GameEngine(std::unique_ptr<MinesweeperBoard> board)
@@ -162,6 +197,7 @@ BoardSnapshot GameEngine::snapshot() const
 void GameEngine::reset(std::optional<BoardConfig> config)
 {
     const BoardConfig next_config = config.value_or(current_config_);
+    validate_config(next_config);
     board_ = std::make_unique<MinesweeperBoard>(next_config.rows, next_config.columns, next_config.mines);
     current_config_ = next_config;
     flags_remaining_ = next_config.mines;

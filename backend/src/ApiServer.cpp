@@ -384,7 +384,13 @@ std::string ApiServer::handle_post_reset(const std::string& body)
     }
 
     std::lock_guard<std::mutex> guard(engine_mutex_);
-    engine_->reset(config);
+    try {
+        engine_->reset(config);
+    } catch (const std::invalid_argument& error) {
+        return build_error_response(400, error.what());
+    } catch (const std::exception&) {
+        return build_error_response(500, "Unable to reset board");
+    }
     const auto snapshot = engine_->snapshot();
     return build_http_response(200, serialize_board_snapshot(snapshot));
 }

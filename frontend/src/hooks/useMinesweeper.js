@@ -731,7 +731,17 @@ export const useMinesweeper = () => {
     (nextDifficulty) => {
       dispatch({ type: 'SET_DIFFICULTY', payload: nextDifficulty });
       const preset = PRESET_LOOKUP.get(nextDifficulty);
-      resetGame(preset);
+      if (preset) {
+        resetGame(preset);
+      }
+    },
+    [resetGame]
+  );
+
+  const applyCustomConfig = useCallback(
+    async (config) => {
+      dispatch({ type: 'SET_DIFFICULTY', payload: 'custom' });
+      await resetGame(config);
     },
     [resetGame]
   );
@@ -746,7 +756,8 @@ export const useMinesweeper = () => {
       chordCell,
       resetGame: () => resetGame(),
       toggleAutoMark,
-      changeDifficulty
+      changeDifficulty,
+      applyCustomConfig
     }),
     [
       revealCell,
@@ -757,7 +768,8 @@ export const useMinesweeper = () => {
       chordCell,
       resetGame,
       toggleAutoMark,
-      changeDifficulty
+      changeDifficulty,
+      applyCustomConfig
     ]
   );
 
