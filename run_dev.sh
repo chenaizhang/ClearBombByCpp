@@ -16,18 +16,48 @@ BACKEND_PORT="${1:-8080}"
 FRONTEND_PORT="${2:-5173}"
 
 cleanup() {
-  if [[ -n "${backend_pid:-}" ]] && kill -0 "$backend_pid" 2>/dev/null; then
-    echo "[CLEANUP] Stopping backend (PID $backend_pid)..."
-    kill "$backend_pid" 2>/dev/null || true
-    wait "$backend_pid" 2>/dev/null || true
+  terminate_pid "${backend_pid:-}" "backend"
+  terminate_pid "${frontend_pid:-}" "frontend"
+  force_release_port "$BACKEND_PORT"
+  force_release_port "$FRONTEND_PORT"
+}
+trap cleanup EXIT INT TERM HUP
+
+terminate_pid() {
+  local pid="$1"
+  local label="$2"
+  if [[ -z "$pid" ]] || ! kill -0 "$pid" 2>/dev/null; then
+    return
   fi
-  if [[ -n "${frontend_pid:-}" ]] && kill -0 "$frontend_pid" 2>/dev/null; then
-    echo "[CLEANUP] Stopping frontend (PID $frontend_pid)..."
-    kill "$frontend_pid" 2>/dev/null || true
-    wait "$frontend_pid" 2>/dev/null || true
+
+  echo "[CLEANUP] Stopping $label (PID $pid)..."
+  kill "$pid" 2>/dev/null || true
+  sleep 0.5
+
+  if kill -0 "$pid" 2>/dev/null; then
+    echo "[CLEANUP] Force killing $label (PID $pid)..."
+    kill -9 "$pid" 2>/dev/null || true
+  fi
+
+  wait "$pid" 2>/dev/null || true
+}
+
+force_release_port() {
+  local port="$1"
+  if [[ -z "$port" ]]; then
+    return
+  fi
+  if ! command -v lsof >/dev/null 2>&1; then
+    return
+  fi
+  local pids
+  pids="$(lsof -ti tcp:"$port" 2>/dev/null | tr '\n' ' ')"
+  if [[ -n "$pids" ]]; then
+    echo "[CLEANUP] Forcing TCP port $port free (PIDs: $pids)"
+    # shellcheck disable=SC2086
+    kill -9 $pids 2>/dev/null || true
   fi
 }
-trap cleanup EXIT
 
 export CLEAR_BOMB_BACKEND_PORT="$BACKEND_PORT"
 export CLEAR_BOMB_FRONTEND_PORT="$FRONTEND_PORT"

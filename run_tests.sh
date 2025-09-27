@@ -17,6 +17,30 @@ BACKEND_PORT="${1:-8080}"
 FRONTEND_PORT="${2:-5173}"
 BUILD_DIR="$ROOT_DIR/backend/build"
 
+force_release_port() {
+  local port="$1"
+  if [[ -z "$port" ]]; then
+    return
+  fi
+  if ! command -v lsof >/dev/null 2>&1; then
+    return
+  fi
+  local pids
+  pids="$(lsof -ti tcp:"$port" 2>/dev/null | tr '\n' ' ')"
+  if [[ -n "$pids" ]]; then
+    printf '[CLEANUP] Forcing TCP port %s free (PIDs: %s)\n' "$port" "$pids"
+    # shellcheck disable=SC2086
+    kill -9 $pids 2>/dev/null || true
+  fi
+}
+
+cleanup() {
+  force_release_port "$BACKEND_PORT"
+  force_release_port "$FRONTEND_PORT"
+}
+
+trap cleanup EXIT INT TERM HUP
+
 printf '[INFO] Project root: %s\n' "$ROOT_DIR"
 printf '[INFO] Backend build dir: %s\n' "$BUILD_DIR"
 printf '[INFO] CMake build type: %s\n' "$BUILD_TYPE"
