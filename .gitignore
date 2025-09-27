@@ -6,3 +6,5 @@ build/
 .vscode/
 cmake-build-*/
 .DS_Store
+logs/
+backend/logs/
