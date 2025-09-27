@@ -38,12 +38,23 @@ void test_flagging_consistency()
     }
 }
 
+void test_first_move_is_safe()
+{
+    clearbomb::GameEngine engine;
+    for (int iteration = 0; iteration < 50; ++iteration) {
+        engine.reset();
+        auto result = engine.reveal_cell(clearbomb::Position{0, 0});
+        assert(!result.hit_mine);
+    }
+}
+
 }  // namespace
 
 int main()
 {
     test_reset_changes_board_dimensions();
     test_flagging_consistency();
+    test_first_move_is_safe();
 
     std::cout << "GameEngine smoke tests completed successfully." << std::endl;
     return 0;

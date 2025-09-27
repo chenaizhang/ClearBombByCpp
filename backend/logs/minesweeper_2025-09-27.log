@@ -1,0 +1,831 @@
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [Application.main:21] - Logging configured at "/Users/francis/Documents/code/project/ClearBombByCpp/backend/logs"
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 16x16 with 40 mines in 0 ms
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [GameEngine.GameEngine:78] - Initialized with default board 16x16 (40 mines)
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [ApiServer.ApiServer:75] - Configured HTTP server on port 8080
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [ApiServer.start:91] - Starting server thread
+[2025-09-27 12:26:22] [INFO] [0x1f9d48800] [Application.main:43] - Clear Bomb server running on port 8080
+[2025-09-27 12:26:22] [CRITICAL] [0x16b8f7000] [ApiServer.run_event_loop:133] - bind failed on port 8080 errno=48
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [Application.main:21] - Logging configured at "/Users/francis/Documents/code/project/ClearBombByCpp/backend/logs"
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 16x16 with 40 mines in 0 ms
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [GameEngine.GameEngine:78] - Initialized with default board 16x16 (40 mines)
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [ApiServer.ApiServer:75] - Configured HTTP server on port 8080
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [ApiServer.start:91] - Starting server thread
+[2025-09-27 13:07:53] [INFO] [0x1f9d48800] [Application.main:43] - Clear Bomb server running on port 8080
+[2025-09-27 13:07:53] [CRITICAL] [0x16fe4f000] [ApiServer.run_event_loop:133] - bind failed on port 8080 errno=48
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [Application.main:21] - Logging configured at "/Users/francis/Documents/code/project/ClearBombByCpp/backend/logs"
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 16x16 with 40 mines in 0 ms
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [GameEngine.GameEngine:78] - Initialized with default board 16x16 (40 mines)
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [ApiServer.ApiServer:75] - Configured HTTP server on port 8080
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [ApiServer.start:91] - Starting server thread
+[2025-09-27 13:08:51] [INFO] [0x1f9d48800] [Application.main:43] - Clear Bomb server running on port 8080
+[2025-09-27 13:08:51] [INFO] [0x16da8f000] [ApiServer.run_event_loop:148] - Server listening on port 8080
+[2025-09-27 13:08:55] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,7) -> hitMine=false, victory=false
+[2025-09-27 13:08:55] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:55] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,9) -> hitMine=false, victory=false
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (6,6) -> hitMine=false, victory=false
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:56] [WARNING] [0x16db1b000] [MinesweeperBoard.reveal:84] - Mine revealed at (7,7)
+[2025-09-27 13:08:56] [WARNING] [0x16db1b000] [GameEngine.reveal_cell:124] - Mine detonated at (7,7) - game over with 40 flags remaining
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (7,7) -> hitMine=true, victory=false
+[2025-09-27 13:08:56] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:57] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 16x16 with 40 mines in 0 ms
+[2025-09-27 13:08:57] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 16x16 with 40 mines
+[2025-09-27 13:08:57] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 16x16 with 40
+[2025-09-27 13:08:57] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=35
+[2025-09-27 13:08:58] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (6,7) -> hitMine=false, victory=false
+[2025-09-27 13:08:58] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (6,9) -> hitMine=false, victory=false
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,10) -> hitMine=false, victory=false
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=21
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 39
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 39
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 38
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 38
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 37
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 37
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:08:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 16x16 with 40 mines in 0 ms
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 16x16 with 40 mines
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 16x16 with 40
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=35
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,3) -> hitMine=false, victory=false
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:02] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:03] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (6,10) -> hitMine=false, victory=false
+[2025-09-27 13:09:03] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=21
+[2025-09-27 13:09:03] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:04] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,7) -> hitMine=false, victory=false
+[2025-09-27 13:09:04] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:04] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (5,9) -> hitMine=false, victory=false
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (2,13) -> hitMine=false, victory=false
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=21
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 39
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 39
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 38
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 38
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 2 mine(s) with certainty
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 2 flag(s) - flags remaining: 36
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 2 cell(s) - flags remaining: 36
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 35
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 35
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=53
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=51
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,7) -> hitMine=false, victory=false
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:06] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,8) -> hitMine=false, victory=false
+[2025-09-27 13:09:06] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:06] [WARNING] [0x16db1b000] [MinesweeperBoard.reveal:84] - Mine revealed at (3,11)
+[2025-09-27 13:09:06] [WARNING] [0x16db1b000] [GameEngine.reveal_cell:124] - Mine detonated at (3,11) - game over with 35 flags remaining
+[2025-09-27 13:09:06] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,11) -> hitMine=true, victory=false
+[2025-09-27 13:09:06] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=21
+[2025-09-27 13:09:12] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:12] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:12] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 2x2 with 2
+[2025-09-27 13:09:12] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=32
+[2025-09-27 13:09:13] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:13] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:13] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:14] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:14] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:14] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:14] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:15] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,1) -> hitMine=false, victory=false
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:16] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,1) -> hitMine=false, victory=false
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:17] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:18] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:19] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:19] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:19] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:20] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:21] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:22] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:23] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:24] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:25] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:26] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:27] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:27] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:27] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:28] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:29] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:30] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:32] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:33] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:34] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:34] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:34] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:34] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:35] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:36] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:37] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:37] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:37] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:38] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:39] [WARNING] [0x16db1b000] [MinesweeperBoard.reveal:84] - Mine revealed at (1,0)
+[2025-09-27 13:09:39] [WARNING] [0x16db1b000] [GameEngine.reveal_cell:124] - Mine detonated at (1,0) - game over with 2 flags remaining
+[2025-09-27 13:09:39] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,0) -> hitMine=true, victory=false
+[2025-09-27 13:09:39] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:40] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:42] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:43] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 2x2 with 2 mines in 0 ms
+[2025-09-27 13:09:43] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 2x2 with 2 mines
+[2025-09-27 13:09:43] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:463] - Board reset via API using existing configuration
+[2025-09-27 13:09:43] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=0
+[2025-09-27 13:09:45] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:45] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:45] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:45] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,0) -> hitMine=false, victory=false
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:46] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (0,1) -> hitMine=false, victory=false
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:47] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (2,4) -> hitMine=false, victory=false
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 3 mine(s) with certainty
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 3 flag(s) - flags remaining: 4
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 3 cell(s) - flags remaining: 4
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:48] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,2) -> hitMine=false, victory=false
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 2 mine(s) with certainty
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 2 flag(s) - flags remaining: 6
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 2 cell(s) - flags remaining: 6
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 4
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 4
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:49] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:50] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (2,4) -> hitMine=false, victory=false
+[2025-09-27 13:09:50] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:50] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,3) -> hitMine=false, victory=false
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:51] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:52] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (1,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:53] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:56] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (2,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:57] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 4
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 4
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:58] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:09:59] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 2 mine(s) with certainty
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 2 flag(s) - flags remaining: 8
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 2 cell(s) - flags remaining: 8
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 4
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 4
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:00] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (5,4) -> hitMine=false, victory=false
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:01] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:03] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (3,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:05] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,4) -> hitMine=false, victory=false
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 2 mine(s) with certainty
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 2 flag(s) - flags remaining: 8
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 2 cell(s) - flags remaining: 8
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:06] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:07] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:07] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:07] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:07] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:08] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (5,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 9
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 9
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 8
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 8
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 4
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 4
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:09] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:10] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:11] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,4) -> hitMine=false, victory=false
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 2 mine(s) with certainty
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 2 flag(s) - flags remaining: 8
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 2 cell(s) - flags remaining: 8
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 7
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 7
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 6
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 6
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 5
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 5
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [AutoMarker.detect_certain_mines:115] - Detected 1 mine(s) with certainty
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [GameEngine.auto_mark:272] - Auto-mark placed 1 flag(s) - flags remaining: 4
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_post_auto_mark:413] - Auto-mark flagged 1 cell(s) - flags remaining: 4
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:12] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (4,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:13] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (5,5) -> hitMine=false, victory=false
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:14] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [ApiServer.handle_post_reveal:357] - Reveal at (5,4) -> hitMine=false, victory=false
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [ApiServer.handle_client:271] - Handled POST /api/reveal payload_size=20
+[2025-09-27 13:10:16] [INFO] [0x16db1b000] [ApiServer.handle_client:277] - Handled POST /api/auto-mark payload_size=49
+[2025-09-27 13:10:18] [INFO] [0x16db1b000] [MinesweeperBoard.MinesweeperBoard:49] - Board populated 9x9 with 10 mines in 0 ms
+[2025-09-27 13:10:18] [INFO] [0x16db1b000] [GameEngine.reset:304] - Board reset to 9x9 with 10 mines
+[2025-09-27 13:10:18] [INFO] [0x16db1b000] [ApiServer.handle_post_reset:461] - Board reset via API to 9x9 with 10
+[2025-09-27 13:10:18] [INFO] [0x16db1b000] [ApiServer.handle_client:280] - Handled POST /api/reset payload_size=33

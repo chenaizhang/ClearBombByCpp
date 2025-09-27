@@ -77,8 +77,10 @@ private:
     std::size_t flags_remaining_ {0};
     bool game_over_ {false};
     GameStatus status_ {GameStatus::Playing};
+    bool first_move_done_ {false};
 
     void reveal_all_mines(std::vector<Cell>& accumulator);
+    void ensure_first_move_safe(Position position);
 };
 ;
 

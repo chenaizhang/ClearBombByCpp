@@ -50,6 +50,7 @@ public:
 
     virtual void resize(std::size_t rows, std::size_t columns, std::size_t mine_count);
     virtual void regenerate();
+    virtual void ensure_safe_cell(Position position);
 
     std::size_t rows() const noexcept;
     std::size_t columns() const noexcept;

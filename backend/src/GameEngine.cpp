@@ -105,6 +105,11 @@ RevealResult GameEngine::reveal_cell(Position position)
         return RevealResult{{}, status_ == GameStatus::Defeat, status_ == GameStatus::Victory, flags_remaining_};
     }
 
+    if (!first_move_done_) {
+        ensure_first_move_safe(position);
+        first_move_done_ = true;
+    }
+
     auto outcome = board_->reveal(position);
     auto updated_cells = std::move(outcome.revealed_cells);
 
@@ -291,6 +296,7 @@ void GameEngine::reset(std::optional<BoardConfig> config)
     flags_remaining_ = next_config.mines;
     status_ = GameStatus::Playing;
     game_over_ = false;
+    first_move_done_ = false;
     LOG_INFO(
         "GameEngine",
         "Board reset to " << next_config.rows << 'x' << next_config.columns << " with " << next_config.mines
@@ -301,6 +307,33 @@ void GameEngine::reset(std::optional<BoardConfig> config)
 const MinesweeperBoard& GameEngine::board() const noexcept
 {
     return *board_;
+}
+
+void GameEngine::ensure_first_move_safe(Position position)
+{
+    constexpr std::size_t kMaxRegenerationAttempts = 16;
+
+    std::size_t attempts = 0;
+    while (board_->cell_at(position).is_mine && attempts < kMaxRegenerationAttempts) {
+        board_->regenerate();
+        ++attempts;
+    }
+
+    if (board_->cell_at(position).is_mine) {
+        board_->ensure_safe_cell(position);
+    }
+
+    if (board_->cell_at(position).is_mine) {
+        LOG_CRITICAL(
+            "GameEngine",
+            "Failed to guarantee safe first move at (" << position.row << ',' << position.column << ')'
+        );
+    } else if (attempts > 0) {
+        LOG_DEBUG(
+            "GameEngine",
+            "Regenerated board " << attempts << " time(s) to secure safe starting cell"
+        );
+    }
 }
 
 void GameEngine::reveal_all_mines(std::vector<Cell>& accumulator)

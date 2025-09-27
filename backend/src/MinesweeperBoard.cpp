@@ -267,6 +267,111 @@ void MinesweeperBoard::regenerate()
     );
 }
 
+void MinesweeperBoard::ensure_safe_cell(Position position)
+{
+    if (!in_bounds(position)) {
+        LOG_ERROR(
+            "MinesweeperBoard",
+            "Safe-cell request out of bounds at (" << position.row << ',' << position.column << ")"
+        );
+        throw std::out_of_range("Safe-cell request outside of board bounds.");
+    }
+
+    const std::size_t target_index = index(position);
+    Cell& target_cell = cells_.at(target_index);
+    if (!target_cell.is_mine) {
+        return;
+    }
+
+    std::size_t replacement_index = cells_.size();
+    for (std::size_t idx = 0; idx < cells_.size(); ++idx) {
+        if (!cells_[idx].is_mine) {
+            replacement_index = idx;
+            break;
+        }
+    }
+
+    if (replacement_index == cells_.size()) {
+        LOG_CRITICAL(
+            "MinesweeperBoard",
+            "Unable to relocate mine from (" << position.row << ',' << position.column
+                                            << ") - no safe cells available"
+        );
+        return;
+    }
+
+    const auto adjust_neighbors = [&](Position center, int delta) {
+        for (const auto& offset : kNeighborOffsets) {
+            const long neighbor_row = static_cast<long>(center.row) + offset[0];
+            const long neighbor_col = static_cast<long>(center.column) + offset[1];
+            if (neighbor_row < 0 || neighbor_col < 0) {
+                continue;
+            }
+            const Position neighbor{
+                static_cast<std::size_t>(neighbor_row),
+                static_cast<std::size_t>(neighbor_col)
+            };
+            if (!in_bounds(neighbor)) {
+                continue;
+            }
+
+            Cell& neighbor_cell = cells_.at(index(neighbor));
+            if (neighbor_cell.is_mine) {
+                continue;
+            }
+            neighbor_cell.adjacent_mines += delta;
+            if (neighbor_cell.adjacent_mines < 0) {
+                neighbor_cell.adjacent_mines = 0;
+            }
+        }
+    };
+
+    const auto recompute_adjacency = [&](Position center) {
+        int count = 0;
+        for (const auto& offset : kNeighborOffsets) {
+            const long neighbor_row = static_cast<long>(center.row) + offset[0];
+            const long neighbor_col = static_cast<long>(center.column) + offset[1];
+            if (neighbor_row < 0 || neighbor_col < 0) {
+                continue;
+            }
+            const Position neighbor{
+                static_cast<std::size_t>(neighbor_row),
+                static_cast<std::size_t>(neighbor_col)
+            };
+            if (!in_bounds(neighbor)) {
+                continue;
+            }
+            if (cells_.at(index(neighbor)).is_mine) {
+                ++count;
+            }
+        }
+        return count;
+    };
+
+    const Position replacement_position = cells_.at(replacement_index).position;
+
+    adjust_neighbors(position, -1);
+
+    target_cell.is_mine = false;
+    target_cell.state = CellState::Hidden;
+    target_cell.exploded = false;
+    target_cell.adjacent_mines = recompute_adjacency(position);
+
+    adjust_neighbors(replacement_position, +1);
+
+    Cell& replacement_cell = cells_.at(replacement_index);
+    replacement_cell.is_mine = true;
+    replacement_cell.adjacent_mines = 0;
+    replacement_cell.state = CellState::Hidden;
+    replacement_cell.exploded = false;
+
+    LOG_DEBUG(
+        "MinesweeperBoard",
+        "Relocated mine from (" << position.row << ',' << position.column << ") to ("
+                                << replacement_position.row << ',' << replacement_position.column << ')'
+    );
+}
+
 std::size_t MinesweeperBoard::rows() const noexcept { return rows_; }
 std::size_t MinesweeperBoard::columns() const noexcept { return columns_; }
 std::size_t MinesweeperBoard::mine_count() const noexcept { return mine_count_; }
