@@ -70,6 +70,113 @@ During development, Vite proxies API calls to `http://localhost:8080`. Adjust `f
 - Press `Ctrl+C` to stop; the script cleans up both processes before exiting.
 - Ensure Node.js, npm, CMake, and a C++20 toolchain are installed locally.
 
+## Deployment From Scratch
+
+The steps below assume a clean workstation with no prior toolchain. They produce a release build of the C++ API server and a static React bundle that you can host with any HTTP server.
+
+### Shared Steps
+
+1. Clone the repository and enter it:
+
+   ```bash
+   git clone https://github.com/your-org/ClearBombByCpp.git
+   cd ClearBombByCpp
+   ```
+
+2. Build the backend in release mode:
+
+   ```bash
+   cmake -S backend -B backend/build -DCMAKE_BUILD_TYPE=Release
+   cmake --build backend/build --target clear_bomb_server
+   ```
+
+   On multi-configuration generators (Visual Studio, Xcode) append `--config Release` to the second command.
+
+3. Build the frontend bundle:
+
+   ```bash
+   cd frontend
+   npm install
+   npm run build
+   cd ..
+   ```
+
+4. Run the backend server from the project root:
+
+   ```bash
+   ./backend/build/clear_bomb_server 8080
+   ```
+
+   On Windows the executable lives under `backend\build\Release\clear_bomb_server.exe` when using Visual Studio.
+
+5. Serve the frontend `frontend/dist` directory with your preferred static host (Nginx, Caddy, `npx serve -s dist`, S3 + CDN, etc.). The React app expects the API to be reachable at `/api`, so keep the backend on the same origin or configure a reverse proxy.
+
+### macOS
+
+1. Install Apple Command Line Tools (provides Clang and headers):
+
+   ```bash
+   xcode-select --install
+   ```
+
+2. Install Homebrew (skip if you already have it) and the required packages:
+
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   brew update
+   brew install cmake node git
+   ```
+
+3. Follow the shared steps above. Run the backend binary with `./backend/build/clear_bomb_server 8080` and serve `frontend/dist` with a static host.
+
+### Linux (Ubuntu/Debian)
+
+1. Install build tools, CMake, and Node.js (using the system packages or NodeSource for newer LTS releases):
+
+   ```bash
+   sudo apt update
+   sudo apt install -y build-essential cmake curl git
+   curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+   sudo apt install -y nodejs
+   ```
+
+2. Execute the shared steps. Use `./backend/build/clear_bomb_server 8080` to launch the API server and host `frontend/dist` via your web server of choice (Nginx, Apache, or a process manager like PM2 running `npx serve`).
+
+### Windows 10/11
+
+1. Install the required tooling via `winget` (an elevated PowerShell prompt is recommended):
+
+   ```powershell
+   winget install -e --id Git.Git
+   winget install -e --id Kitware.CMake
+   winget install -e --id OpenJS.NodeJS.LTS
+   winget install -e --id Microsoft.VisualStudio.2022.BuildTools --override "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
+   ```
+
+2. Open the "x64 Native Tools Command Prompt for VS 2022" (or a PowerShell session with the `vcvars64.bat` environment loaded) and run the shared steps. When building, append `--config Release` to the `cmake --build` command:
+
+   ```powershell
+   cmake -S backend -B backend/build -DCMAKE_BUILD_TYPE=Release
+   cmake --build backend/build --target clear_bomb_server --config Release
+   ```
+
+   The release executable is produced at `backend\build\Release\clear_bomb_server.exe`.
+
+3. Start the backend with:
+
+   ```powershell
+   backend\build\Release\clear_bomb_server.exe 8080
+   ```
+
+4. Serve the frontend bundle (`frontend\dist`) with IIS Static Content, Nginx for Windows, or a lightweight option such as:
+
+   ```powershell
+   cd frontend
+   npx serve -s dist -l 4173
+   ```
+
+   Update DNS or firewall rules as needed so the static host can reach the backend API at `http://<your-host>:8080/api`.
+
 ## Gameplay Enhancements
 
 1. **Difficulty presets** – Beginner, Intermediate, and Expert presets map to classic Minesweeper sizes, and you can introduce new presets via `DIFFICULTY_PRESETS` in `useMinesweeper.js`.
