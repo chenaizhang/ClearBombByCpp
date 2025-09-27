@@ -28,13 +28,13 @@ Clear Bomb delivers a browser-based Minesweeper that couples a modern React inte
 
 ## Backend Endpoints
 
-| Method | Path          | Description                                |
-| ------ | ------------- | ------------------------------------------ |
-| GET    | `/api/board`  | Fetch the current board snapshot           |
-| POST   | `/api/reset`  | Rebuild the board (optional size payload)  |
-| POST   | `/api/reveal` | Reveal a cell and resolve cascades         |
-| POST   | `/api/flag`   | Toggle a flag on a cell                    |
-| POST   | `/api/auto-mark` | Flag certain mines inside a selection |
+| Method | Path             | Description                               |
+| ------ | ---------------- | ----------------------------------------- |
+| GET    | `/api/board`     | Fetch the current board snapshot          |
+| POST   | `/api/reset`     | Rebuild the board (optional size payload) |
+| POST   | `/api/reveal`    | Reveal a cell and resolve cascades        |
+| POST   | `/api/flag`      | Toggle a flag on a cell                   |
+| POST   | `/api/auto-mark` | Flag certain mines inside a selection     |
 
 All POST payloads accept/return JSON. Cells are described by `row`, `column`, `state`, `adjacentMines`, `isMine` (revealed only), and `exploded` flags, letting the UI update a targeted subset without reloading the entire grid.
 
@@ -79,7 +79,7 @@ The steps below assume a clean workstation with no prior toolchain. They produce
 1. Clone the repository and enter it:
 
    ```bash
-   git clone https://github.com/your-org/ClearBombByCpp.git
+   git clone https://github.com/chenaizhang/ClearBombByCpp.git
    cd ClearBombByCpp
    ```
 
